@@ -10,7 +10,8 @@
     var socket = io.connect('http://localhost:8080');
     socket.on('message', function (data) {
       console.log("Data is: " + data);
-      // socket.emit('my other event', { my: 'data' });
+      var divText = $("<div></div>").text(data.text);
+      $("#message-display").append(divText);
     });
   </script>
 

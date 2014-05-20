@@ -9,9 +9,8 @@
     $("#chat-form").submit(function (event) {
       event.preventDefault();
       var text = $('#message-text').val();
-      var escaped = $("<div></div>").text(text);
       chat.sendMessage(text);
-      $("#message-display").append(escaped);
+      //$("#message-display").append(escaped);
     })
 
   })
