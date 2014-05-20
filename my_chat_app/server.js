@@ -12,19 +12,22 @@ var app = require('http').createServer(handler)
 //
 // console.log('Server Running, great');
 
-// app.listen(80);
+app.listen(8080);
 
 function handler (req, res) {
-  fs.readFile(__dirname + '/public/index.html',
-    function (err, data) {
-      if (err) {
-        res.writeHead(500);
-        return res.end('Error loading index.html');
-      }
-
-      res.writeHead(200);
-      res.end(data);
-    });
+  // console.log(req.url)
+  // if you put req.url in line below, have to navigate to index.html
+  // fs.readFile(__dirname + '/' + req.url,
+  //   function (err, data) {
+  //     if (err) {
+  //       res.writeHead(500);
+  //       return res.end('Error loading index.html');
+  //     }
+  //
+  //     res.writeHead(200);
+  //     res.end(data);
+  //   });
+  router(req, res);
 }
 
 createChat(app);
