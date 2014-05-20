@@ -11,7 +11,6 @@ var router = function(request, response){
       response.end(data);
     })
   } else {
-    console.log(request.url);
     fs.readFile("public/" + request.url,
         {encoding: "utf8"},
       function (err, data) {
