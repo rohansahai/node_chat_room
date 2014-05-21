@@ -9,10 +9,23 @@
     $("#chat-form").submit(function (event) {
       event.preventDefault();
       var text = $('#message-text').val();
-      chat.sendMessage(text);
-      //$("#message-display").append(escaped);
+      $('#message-text').val("");
+      var nickName = checkIfNickName(text);
+      if (nickName){
+        chat.nicknameChangeRequest(nickName);
+      } else {
+        chat.sendMessage(text);
+      }
     })
 
   })
+
+  function checkIfNickName(text){
+    var prefix = text.slice(0,6);
+    if (prefix === "/nick "){
+      return text.slice(6)
+    }
+    return false
+  }
 
 })(this);

@@ -9,6 +9,10 @@
     socket.emit("message", text);
   };
 
+  Chat.prototype.nicknameChangeRequest = function (text) {
+    socket.emit("nicknameChangeRequest", text);
+  };
+
 })(this);
 
 

@@ -9,9 +9,12 @@
   <script type="text/javascript">
     var socket = io.connect('http://localhost:8080');
     socket.on('message', function (data) {
-      console.log("Data is: " + data);
       var divText = $("<div></div>").text(data.text);
       $("#message-display").append(divText);
+    });
+
+    socket.on('nicknameChangeResult', function (data) {
+      $("#flashes").append(data.message);
     });
   </script>
 
@@ -24,8 +27,10 @@
   </form>
 
   <div id="message-display">
-    <marquee> Messages Here </marquee>
+    <h2> Messages Here </h2>
   </div>
+
+  <div id="flashes"></div>
 
 </body>
 </html>
