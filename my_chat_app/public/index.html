@@ -16,6 +16,13 @@
     socket.on('nicknameChangeResult', function (data) {
       $("#flashes").append(data.message);
     });
+
+    socket.on('nicknamesList', function (data) {
+      $("#users").empty();
+      data.nameList.forEach(function(nickName){
+        $("#users").append('<li>' + nickName + '</li>');
+      });
+    });
   </script>
 
   </head>
@@ -29,7 +36,11 @@
   <div id="message-display">
     <h2> Messages Here </h2>
   </div>
-
+  <br>
+  <h4>Users!</h4>
+  <ul id="users">
+  </ul>
+  <br>
   <div id="flashes"></div>
 
 </body>
